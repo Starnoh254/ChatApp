@@ -28,7 +28,7 @@ app.get('/getMessages' , async (req , res) => {
     const name =  req.query.name ? req.query.name : ''
     try {
         const messages =   await client.db('chatApp').collection('users').find({user : name}).toArray()
-        console.log(messages[0].messages)
+        console.log(messages[0].message)
         res.status(200).json(messages)
     }
     catch(e){
